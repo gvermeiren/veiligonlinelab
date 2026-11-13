@@ -437,6 +437,34 @@ const AREAS = [
   {naam:'Toestellen en wifi', thema:'Updates, app-toestemmingen, openbare wifi en back-ups', n:4, open:true},
   {naam:'Eindproef', thema:'Je noodplan, je eigen check en de eindproef', n:3, open:true}
 ];
+/* ---------- intro per halte, in de stem van de gids ---------- */
+const INTRO = [
+ {jong:'Halte 1 is de basis. Hier ontdek je waarom de Kameleon zo graag jouw accounts wil hebben, ook al denk je dat er niets interessants op staat. Je leert ook zijn vier lievelingstrucs kennen: haast, angst, iets gratis en vermomming. Wie die trucs herkent, trapt er veel minder snel in!',
+  tiener:'Halte 1: de basis. Waarom zou iemand jouw Instagram of je mail willen? Spoiler: omdat die meer waard zijn dan je denkt. Je maakt een inventaris van je digitale spullen en leert hoe social engineering werkt: mensen hacken in plaats van computers. Dat is de rode draad door de hele lijn.',
+  volw:'In dit eerste onderdeel zetten we de basis. U ziet waarom criminelen interesse hebben in gewone accounts, ook die van u, en welke accounts het meeste bescherming verdienen. Daarna bekijken we de psychologische trucs die oplichters gebruiken: tijdsdruk, angst, autoriteit en vertrouwen. Die komen in elk volgend onderdeel terug.'},
+ {jong:'Halte 2 gaat over het slot op je accounts: je wachtwoord. Je ontdekt waarom “Pluisje2013” in een seconde gekraakt wordt, en hoe je een supersterk wachtwoord maakt dat je toch onthoudt, met een grappig plaatje in je hoofd. En je leert waarom elk account een eigen slot verdient.',
+  tiener:'Halte 2: wachtwoorden. Kraakprogramma’s kennen alle trucjes met hoofdletters, cijfers en uitroeptekens. Wat écht werkt, is lengte. Je leert wachtwoordzinnen maken, waarom hergebruik de nummer één oorzaak van overgenomen accounts is, en hoe een wachtwoordmanager je leven makkelijker maakt.',
+  volw:'Dit onderdeel gaat over wachtwoorden. U ziet waarom een wachtwoord dat aan alle regels voldoet toch snel gekraakt kan worden, en hoe een wachtwoordzin sterker én makkelijker te onthouden is. We bespreken ook waarom één datalek al uw accounts kan blootleggen, en hoe een wachtwoordmanager dat voorkomt.'},
+ {jong:'Halte 3: een tweede slot op je deur! Zelfs als de Kameleon je wachtwoord steelt, komt hij er niet in zonder de code van jouw gsm. Je leert ook de gouden regel: een code die je krijgt om in te loggen, geef je aan niemand. Ook niet aan je beste vriend.',
+  tiener:'Halte 3: tweestapsverificatie. Als je maar één ding uit deze lijn onthoudt, laat het dit zijn. Je leert welke vormen er zijn, van sms tot passkey, waarom je een inlogcode nooit doorstuurt, en hoe je jezelf niet buitensluit als je een nieuwe gsm krijgt.',
+  volw:'Dit onderdeel gaat over tweestapsverificatie: naast uw wachtwoord heeft u iets nodig wat alleen u heeft, zoals uw gsm. Dat houdt het grootste deel van de inbraken op accounts tegen. U leert ook waarom uw bank, de overheid en uw IT-dienst nooit om uw code vragen, en hoe u veilig van gsm wisselt.'},
+ {jong:'Halte 4: phishing! De Kameleon gooit zijn hengel uit met nepmails, nep-sms’en en neplinks. Hier word je een echte speurneus: je leert de vijf rode vlaggen herkennen, ontdekken waar een link echt naartoe gaat en nep-webshops ontmaskeren. En wat je doet als je toch op iets geklikt hebt.',
+  tiener:'Halte 4: phishing. Het meest gebruikte aanvalsmiddel ter wereld, omdat het werkt. Je leert de vijf rode vlaggen, URL’s lezen als een pro, QR-codes checken, nep-webshops doorprikken en wat je in het eerste uur na een foute klik doet. Dit is de langste halte, met de meeste nagemaakte berichten.',
+  volw:'Dit is het langste onderdeel: phishing herkennen. U oefent op nagemaakte mails, sms’en en webshops, en leert de rode vlaggen zien, ook die van de werkvloer zoals een gewijzigd rekeningnummer. U leert een webadres en een QR-code controleren, en wat u doet in het eerste uur nadat u toch geklikt heeft.'},
+ {jong:'Halte 5: hier vermomt de Kameleon zich het slimst. Hij doet alsof hij de helpdesk is, of je nicht met een nieuw nummer, of hij belooft gratis skins. Je leert hoe je dat checkt. En je leert ook wat je doet als iemand je online bedreigt: dat is een serieuze les, maar heel belangrijk.',
+  tiener:'Halte 5: oplichting doorzien. Hier gaat het niet meer om één bericht, maar om hele scenario’s: valse helpdesks, nepvrienden met een nieuw nummer, makkelijk geld waarbij je geldezel wordt, en afpersing. Die laatste les is zwaar, maar je kan er iemand mee helpen. Misschien zelfs jezelf.',
+  volw:'Dit onderdeel gaat over de bekendste vormen van oplichting: valse helpdesks en bankmedewerkers, ‘Hallo mama’-berichten, CEO-fraude op het werk, beleggings- en liefdesfraude en afpersing. Telkens leert u het patroon herkennen en hoe u het controleert via een ander kanaal. In de laatste les ziet u ook hoe u reageert als uw kind wordt afgeperst.'},
+ {jong:'Halte 6: privacy. Alles wat je online zet, kan de Kameleon gebruiken om zich nog beter te vermommen. Je leert wat je beter voor jezelf houdt, hoe je je account op privé zet, wat een foto allemaal kan verklappen, en waarom je het eerst vraagt voor je een foto van een vriend post.',
+  tiener:'Halte 6: privacy. Losse stukjes info lijken onschuldig, maar samen vormen ze een profiel dat de Kameleon perfect kan gebruiken. Je leert bewust delen, je privacy-instellingen goed zetten, je locatie onder controle houden en respectvol omgaan met beelden en gegevens van anderen.',
+  volw:'Dit onderdeel gaat over privacy, thuis en op het werk. U ziet hoe openbare informatie gerichte oplichting makkelijker maakt, welke privacy-instellingen ertoe doen en wat een foto onbedoeld kan verklappen. De laatste les gaat over de gegevens van anderen: klantgegevens, de GDPR en wat u doet bij een datalek.'},
+ {jong:'Halte 7: je toestellen en wifi. Je leert waarom updates gaatjes dichtmaken, welke apps te veel willen weten, waarom je op gratis wifi beter niet inlogt op je mail, en hoe je ervoor zorgt dat je foto’s nooit verloren gaan. Bijna klaar!',
+  tiener:'Halte 7: toestellen en wifi. Het minst spannende deel, maar wel een van de belangrijkste. Updates, app-toestemmingen, openbare wifi en back-ups volgens de 3-2-1-regel. Een kwartiertje werk, en je bent beschermd tegen een hele reeks problemen.',
+  volw:'Dit onderdeel gaat over uw toestellen en verbindingen. U leert waarom updates dringend zijn, ook voor uw router en slimme toestellen, hoe u app-toestemmingen beoordeelt, hoe u veilig werkt op openbare wifi, en hoe u met de 3-2-1-regel uw bestanden beschermt tegen defecten, diefstal en ransomware.'},
+ {jong:'De laatste halte! Eerst maak je je eigen noodplan, voor als er toch iets misloopt. Dan check je je eigen accounts en kies je drie dingen die je deze week aanpakt. En dan de eindproef: alle trucs van de Kameleon door elkaar. Haal je hem, dan word je officieel Cyberheld!',
+  tiener:'Laatste halte. Eerst je noodplan met de nummers die je nodig hebt als het misloopt. Daarna een check van je eigen setup, met je top 3 om te fixen. En dan de eindbaas: een proef waarin alles door elkaar komt. Haal je die, dan krijg je je skillkaart.',
+  volw:'Het laatste onderdeel. U stelt een noodkaart op met de nummers en stappen voor als het toch misloopt, en u maakt een actieplan voor uw eigen situatie. Tot slot volgt de eindproef, met vragen uit alle onderdelen. Daarna kan u uw deelnamebewijs downloaden.'}
+];
+AREAS.forEach((a,i)=>a.intro = INTRO[i]);
 const TOTAL = AREAS.reduce((s,a)=>s+a.n,0);
 const jaNee = ['Ja','Nee'];
 const echtNep = ['Echt','Nep'];
@@ -2573,11 +2601,25 @@ function renderMap(){
   const p = PATHS[S.path], d = doneFor(S.path);
   if(!AREAS[selArea]) selArea = 0;
   const nDone = L.filter(x=>d[x.id]).length, full = allBuiltDone(), ca = currentArea();
-  const msg = full ? 'Je hebt de hele route afgelegd. Proficiat! Je certificaat vind je bij halte 8.' : (ca>0 && !lessonsOf(ca).some(l=>d[l.id])) ? `Op naar halte ${ca+1}: ${AREAS[ca].naam.toLowerCase()}! Hier draait het om: ${AREAS[ca].thema.toLowerCase()}.` : nDone>0 ? (k => `Halte ${ca+1}: ${AREAS[ca].naam.toLowerCase()}. Nog ${k} ${k===1?'les':'lessen'} te gaan in deze halte.`)(lessonsOf(ca).filter(l=>!d[l.id]).length) : p.kaart;
+  const u = S.path==='volw';
+  const msgFor = i => {
+    const intro = (AREAS[i].intro && AREAS[i].intro[S.path]) || AREAS[i].thema;
+    const k = lessonsOf(i).filter(l=>!d[l.id]).length;
+    let st = '';
+    if(full) st = u ? 'U heeft de hele route afgelegd. Proficiat! Uw deelnamebewijs vindt u bij halte 8.' : 'Je hebt de hele route afgelegd. Proficiat! Je certificaat vind je bij halte 8.';
+    else if(areaFull(i)) st = u ? 'Deze halte heeft u al afgerond.' : 'Deze halte heb je al afgerond.';
+    else if(i===ca && nDone===0) st = p.kaart;
+    else if(i===ca && k<lessonsOf(i).length) st = `Nog ${k} ${k===1?'les':'lessen'} te gaan in deze halte.`;
+    else if(i===ca) st = u ? `Op naar halte ${i+1}!` : `Op naar halte ${i+1}!`;
+    return (st ? `<b>${st}</b><br>` : '') + intro;
+  };
+  const msg = msgFor(selArea);
   const mapBox = h('div',{class:'mapBox', html: mapMarkup(selArea)});
   const pick = el => { const g = el.closest('[data-area]'); if(!g) return; selArea=+g.dataset.area;
     mapBox.querySelectorAll('.stopG').forEach(n=>n.classList.toggle('sel', +n.dataset.area===selArea));
     const np = panelFor(selArea); document.getElementById('panel').replaceWith(np);
+    const ns = say(S.path, [msgFor(selArea)], {size:60, mood: areaFull(selArea)?'happy':'neutral'}); ns.id='gidsTekst';
+    document.getElementById('gidsTekst').replaceWith(ns);
     if(window.innerWidth<820) np.scrollIntoView({behavior:'smooth', block:'nearest'}); };
   mapBox.addEventListener('click', e=>pick(e.target));
   mapBox.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(e.target); } });
@@ -2586,7 +2628,7 @@ function renderMap(){
       h('div',{class:'brand'}, flask(), 'Veilig Online Lab'),
       h('span',{class:'chip', style:'cursor:default'}, guide(S.path,'neutral',30), `${p.label} · met ${p.gids}`)),
     h('section',{class:'mapHead'},
-      say(S.path, [msg], {size:60, mood: full?'happy':'neutral'}),
+      (n => (n.id='gidsTekst', n))(say(S.path, [msg], {size:60, mood: full?'happy':'neutral'})),
       h('div',{class:'meter'}, h('span',null,`${nDone} / ${TOTAL} lessen`), h('span',{class:'bar', role:'progressbar','aria-label':'Voortgang','aria-valuemin':0,'aria-valuemax':TOTAL,'aria-valuenow':nDone}, h('i',{style:`width:${nDone/TOTAL*100}%`})))),
     h('div',{class:'world'}, mapBox, panelFor(selArea)),
     footer(true)
