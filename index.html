@@ -310,6 +310,42 @@ textarea:focus{outline:none;border-color:var(--accent)}
   .seal{animation:pop .5s cubic-bezier(.2,1.6,.4,1)}
   @keyframes pop{from{transform:rotate(-30deg) scale(.6)}to{transform:rotate(-8deg) scale(1)}}
 }
+/* ===== uitgebreide intro ===== */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:640px;margin-top:4px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:grid;gap:2px}
+.stat b{font-family:var(--f-display);font-size:1.35rem;line-height:1.15;color:var(--accent)}
+.stat span{font-size:.8rem;color:var(--muted)}
+@media (max-width:520px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.isec{margin-top:34px;display:grid;gap:12px}
+.isec h2{font-family:var(--f-display);font-size:1.45rem;letter-spacing:-.01em}
+.isub{color:var(--muted);max-width:62ch;margin-top:-4px}
+.hoe{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:700px){.hoe{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.hoe{grid-template-columns:1fr}}
+.hoe li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:6px;align-content:start}
+.hoe li span:last-child{color:var(--muted);font-size:.93rem}
+.hnr{width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-family:var(--f-display)}
+.rlist{list-style:none;margin:0;padding:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 16px}
+.rlist li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;position:relative}
+.rlist li:not(:last-child){border-bottom:1px dashed var(--line)}
+.rnr{width:30px;height:30px;border-radius:50%;border:3px solid var(--accent);display:grid;place-items:center;font-weight:700;font-size:.85rem;background:var(--surface)}
+.rlist b{display:block}
+.rth{color:var(--muted);font-size:.9rem}
+.rn{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.oefen{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.ocard{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.ocard b{display:block}
+.ocard div span{color:var(--muted);font-size:.9rem}
+.oico{flex:none;width:36px;height:36px;border-radius:10px;background:var(--mebg);display:grid;place-items:center}
+.oico svg{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.weetjes{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.weet{background:var(--sunk);border-radius:var(--r);padding:12px 14px;display:grid;gap:4px}
+.weet span{color:var(--muted);font-size:.92rem}
+.extra{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.extra p{color:var(--muted);margin-top:6px}
+@media (max-width:520px){.extra{grid-template-columns:1fr}}
+.extra.solo{grid-template-columns:1fr}
+.icta{margin-top:26px;display:flex;justify-content:center}
 
 /* ===== Veilig Online Lab ===== */
 .kamHero{display:inline-flex;align-items:flex-end;margin-left:18px}
@@ -2389,6 +2425,32 @@ L.push(
     slot:'U heeft de eindproef afgerond. Uw deelnamebewijs staat klaar.'}
 }}
 );
+/* ---------- uitgebreide intro (keuzescherm) ---------- */
+const INFO = {
+  hoeSub:'Drie paden, dezelfde acht haltes. Je oefent op nagemaakte berichten, schermen en webshops: veilig, want niets is echt.',
+  hoe:[
+    {t:'Kies je gids', s:'Juno (12–14), Ravi (15–18) of Ines (volwassenen). Elke gids gebruikt voorbeelden uit jouw leefwereld.'},
+    {t:'Neem de metro', s:'Begin bij halte 1 en rij door naar de eindproef. Je mag ook meteen uitstappen bij een halte die je nodig hebt.'},
+    {t:'Lees, kijk, oefen', s:'Elke les heeft een korte uitleg, een voorbeeld en oefeningen die zichzelf verbeteren. Fout is niet erg: je krijgt meteen uitleg.'},
+    {t:'Verdien je bewijs', s:'Na elke halte krijg je een beloning. Na de eindproef krijg je een diploma, skillkaart of deelnamebewijs met je naam.'}],
+  extra:{beeld:()=>kameleon(120), titel:'Wie is de Kameleon?', tekst:[
+    'De Kameleon is de tegenspeler in dit leerpad. Hij hackt geen computers, hij hackt mensen. Hij vermomt zich als je bank, je school, een vriend of zelfs je baas, en hij speelt in op haast, angst en hebzucht.',
+    'Bij elke halte leer je een van zijn trucs doorzien. Aan het einde ben je hem te slim af, en weet je ook wat je moet doen als het toch eens misloopt.']},
+  routeSub:'Van de basis naar de eindproef. Elke halte bouwt verder op de vorige.',
+  oefenSub:'Geen lange teksten, wel veel korte oefeningen. De volgorde van de antwoorden verandert bij elke poging.',
+  oefen:[
+    {ico:'mail', t:'Echt of nep?', s:'Tik de rode vlaggen aan in een nagemaakt bericht.'},
+    {ico:'gauge', t:'Sterktemeter', s:'Kies het sterkste wachtwoord en zie hoe lang het standhoudt.'},
+    {ico:'check', t:'Veilig of niet?', s:'Beslis snel: klikken of niet, delen of niet.'},
+    {ico:'link', t:'Koppelen', s:'Welke truc hoort bij welk bericht? Welke stap bij welke situatie?'},
+    {ico:'blocks', t:'In de juiste volgorde', s:'Zet de stappen van een noodplan op hun plaats.'},
+    {ico:'pen', t:'Je eigen check', s:'Maak een actieplan voor je eigen accounts en toestellen.'}],
+  weetjes:[
+    {t:'Alles is nagemaakt', s:'Namen, bedrijven en webadressen zijn verzonnen. De links in de oefeningen werken niet, dus je kan niets fout aanklikken.'},
+    {t:'Geen account', s:'Je voortgang wordt bewaard op dit toestel, apart per gids. Niemand anders ziet je antwoorden.'},
+    {t:'Hulp nodig?', s:'Kaart misbruikt: <b>Card Stop 078 170 170</b>. Bedreigd of afgeperst: <b>Child Focus 116 000</b>. Verdacht bericht: doorsturen naar <b>verdacht@safeonweb.be</b>.'},
+    {t:'In de klas of een workshop', s:'Elke leeftijdsgroep heeft ook een eigen pagina. Reken ongeveer 30 tot 45 minuten per halte. Werkt op gsm, tablet en computer.'}]
+};
 
 L.forEach(l=>l.area = +l.id.split('.')[0]-1);
 for(const p of Object.values(PATHS)) if(!p.cert) p.cert = {titel:'Deelnamebewijs', sub:''};
@@ -2554,7 +2616,8 @@ function renderChoose(){
     h('section',{class:'hero'},
       h('div',{class:'crew'}, Object.keys(PATHS).map(k=>guide(k,'happy',76)), h('span',{class:'kamHero', html:kameleon(70)})),
       h('h1',null,'Word slimmer dan de Kameleon.'),
-      h('p',null,'Een metrolijn met 8 haltes en 30 korte lessen over veilig online zijn. Elke les duurt 5 tot 10 minuten en verbetert zichzelf. Kies je gids.')),
+      h('p',null,'Een metrolijn met 8 haltes en 30 korte lessen over veilig online zijn. Elke les duurt 5 tot 10 minuten en verbetert zichzelf. Kies je gids.'),
+      kerncijfers()),
     h('div',{class:'paths'}, Object.entries(PATHS).map(([k,p]) =>
       h('button',{class:'path', style:`--pc:var(--c-${k})`, onclick:()=>{ S.path=k; selArea=currentArea(); save(); renderMap(); toTop(); }},
         guide(k,'neutral',64),
@@ -2562,8 +2625,36 @@ function renderChoose(){
           h('span',{class:'meta'}, p.label),
           h('b',null,`Met ${p.gids}`),
           h('small',null, `${p.gids} is je ${p.rol}. ${p.pitch}`))))),
+    ...introSections(),
     footer()
   );
+}
+
+/* ---------- uitgebreide intro onder de gidskeuze ---------- */
+function totaalMinuten(){ return L.reduce((s,l)=>s+(parseInt(l.duur)||0),0); }
+function kerncijfers(){
+  const min = totaalMinuten(), uur = Math.round(min/30)/2;
+  return h('div',{class:'stats'}, [[AREAS.length,'haltes'],[TOTAL,'korte lessen'],[Object.keys(PATHS).length,'gidsen'],[`± ${String(uur).replace('.',',')} uur`,'in totaal']]
+    .map(([g,t])=>h('div',{class:'stat'}, h('b',null,String(g)), h('span',null,t))));
+}
+function introSections(){
+  if(typeof INFO==='undefined') return [];
+  const sec = (titel, sub, ...kids) => h('section',{class:'isec'}, h('h2',null,titel), sub ? h('p',{class:'isub'}, sub) : null, ...kids);
+  const out = [];
+  if(INFO.hoe) out.push(sec('Zo werkt het', INFO.hoeSub,
+    h('ol',{class:'hoe'}, INFO.hoe.map((s,i)=>h('li',null, h('span',{class:'hnr'}, String(i+1)), h('b',null,s.t), h('span',null,s.s))))));
+  if(INFO.extra) out.push(h('section',{class:'isec extra'+(INFO.extra.beeld?'':' solo')},
+    INFO.extra.beeld ? h('div',{class:'xbeeld', html: INFO.extra.beeld()}) : null,
+    h('div',null, h('h2',null,INFO.extra.titel), ...INFO.extra.tekst.map(p=>h('p',{html:p})))));
+  out.push(sec('De route', INFO.routeSub,
+    h('ol',{class:'rlist'}, AREAS.map((a,i)=>h('li',null, h('span',{class:'rnr'}, String(i+1)),
+      h('div',null, h('b',null,a.naam), h('span',{class:'rth'}, a.thema)), h('span',{class:'rn'}, `${a.n} lessen`))))));
+  if(INFO.oefen) out.push(sec('Zo oefen je', INFO.oefenSub,
+    h('div',{class:'oefen'}, INFO.oefen.map(o=>h('div',{class:'ocard'}, h('span',{class:'oico', html:(ICON[o.ico]||ICON.check)}), h('div',null, h('b',null,o.t), h('span',null,o.s)))))));
+  if(INFO.weetjes) out.push(sec('Goed om te weten', null,
+    h('div',{class:'weetjes'}, INFO.weetjes.map(w=>h('div',{class:'weet'}, h('b',null,w.t), h('span',{html:w.s}))))));
+  out.push(h('div',{class:'icta'}, h('button',{class:'btn', onclick:()=>{ const el=document.querySelector('.paths'); el && el.scrollIntoView({behavior:'smooth', block:'center'}); }}, 'Kies je gids ↑')));
+  return out;
 }
 
 function nextLessonId(){ const d=doneFor(S.path); const l=L.find(x=>!d[x.id]); return l?l.id:null; }
